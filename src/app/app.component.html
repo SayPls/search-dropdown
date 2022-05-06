@@ -1,7 +1,7 @@
-<div *ngIf="width > 900">
+<div class="content" *ngIf="width >= 900" (click)="search = false">
   <header>
-    <h2>TILE.EXPERT</h2>
 
+    <h2>TILE.EXPERT</h2>
 
     <div class="action-line">
       <div @fadeAnimation *ngIf="!search" class="wrap">
@@ -24,14 +24,30 @@
           <span>Посищение</span>
         </button>
       </div>
-      <input @fadeAnimation *ngIf="search" type="text">
 
-        <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="triggerSearch()">search</mat-icon>
+          <input type="text"
+                 @fadeAnimation *ngIf="search" (click)="$event.stopPropagation()"
+                 placeholder="Pick one"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option>
+              <p>one, two</p>
+            </mat-option>
+          </mat-autocomplete>
+
+      <div (click)="$event.stopPropagation()">
+        <button mat-button *ngIf="!search" (click)="search = true">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" >search</mat-icon>
         </button>
-        <button mat-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon">add_circle</mat-icon>
+      </div>
+      <div (click)="$event.stopPropagation()">
+        <button mat-button *ngIf="search" style="background: orange">
+          Найти
         </button>
+      </div>
+      <button mat-button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">add_circle</mat-icon>
+      </button>
     </div>
 
     <div class="second-block">
@@ -39,21 +55,26 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">email</mat-icon>
       </button>
       <button mat-button>
-        <mat-icon MatBadgeSize="small" [matBadge]="1" matBadgeColor="warn" aria-hidden="false" aria-label="Example home icon">notifications</mat-icon>
+        <mat-icon
+          MatBadgeSize="small" [matBadge]="1"
+          matBadgeColor="warn" aria-hidden="false"
+          aria-label="Example home icon">notifications</mat-icon>
       </button>
-
-
-      <img src="favicon.ico" alt="img">
+      <button mat-button>
+        <img src="favicon.ico" alt="img">
+      </button>
     </div>
 
   </header>
+
 </div>
 
-<div *ngIf="width < 900">
+<div class="content" *ngIf="width < 900" (click)="search = false">
 
   <header>
 
     <div class="first-block">
+      <div class="hidden-block" *ngIf="!search">
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>menu</mat-icon>
       </button>
@@ -87,21 +108,37 @@
           <span>Добавить</span>
         </button>
       </mat-menu>
-      <h2>BlaBlaBla</h2>
-      <div class="search-block">
-        <input @fadeAnimation *ngIf="search" type="text">
-        <button mat-button>
+      <h2>TILE.EXPERT</h2>
+      </div>
+      <div class="search-block" (click)="$event.stopPropagation()">
+        <input type="text"
+               @fadeAnimation *ngIf="search"
+               placeholder="Pick one"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option>
+            <p>one</p>
+          </mat-option>
+        </mat-autocomplete>
+
+        <button mat-button (click)="search = true" *ngIf="!search">
           <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+        </button>
+        <button mat-button *ngIf="search" style="background: orange">
+          Найти
         </button>
       </div>
     </div>
 
-    <div class="second-block">
+    <div class="second-block" *ngIf="!search">
       <button mat-button>
         <mat-icon aria-hidden="false" aria-label="Example home icon">email</mat-icon>
       </button>
       <button mat-button>
-        <mat-icon MatBadgeSize="small" matBadge="1"  matBadgeColor="warn" aria-hidden="false" aria-label="Example home icon">notifications</mat-icon>
+        <mat-icon
+          MatBadgeSize="small" matBadge="1"
+          matBadgeColor="warn" aria-hidden="false"
+          aria-label="Example home icon">notifications</mat-icon>
       </button>
       <img src="favicon.ico" alt="img">
     </div>
@@ -109,3 +146,5 @@
   </header>
 
 </div>
+
+

@@ -9,10 +9,12 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,9 @@ import {MatInputModule} from "@angular/material/input";
     MatMenuModule,
     MatButtonModule,
     MatBadgeModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,50 +1,69 @@
 
-header
-  display: flex
-  flex-wrap: nowrap
-  justify-content: space-between
-  align-content: center
-  align-items: center
-  background-color: #4444a8
-  padding: 15px
-  color: white
+.content
+  display: block
+  height: 100vh
 
-.action-line
-  display: flex
-  justify-content: center
-  width: 100%
-.second-block
-  display: flex
-  align-items: center
+@media screen and (min-width: 900px)
+  header
+    display: flex
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-content: center
+    align-items: center
+    background-color: #4444a8
+    padding: 15px
+    color: white
+    .action-line
+      display: flex
+      justify-content: center
+      width: 100%
+      input
+        width: 70%
+      .wrap
+        display: flex
+        justify-content: space-around
+        height: 36px
+        overflow-x: hidden
+        width: 71%
+    .second-block
+      display: flex
+      align-items: center
 
-@media screen and (max-width: 900px)
+
+
+@media screen and (max-width: 899px)
   header
     display: flex
     flex-direction: column
+    background-color: #4444a8
+    color: white
+    padding: 15px
     .first-block
       display: flex
       justify-content: flex-start
       align-items: center
       width: 100%
+      .hidden-block
+        display: flex
+        align-items: center
       .search-block
         display: flex
         justify-content: flex-end
         width: 100%
+        input
+          width: 100%
     .second-block
       display: flex
       justify-content: space-around
+      align-items: center
       width: 100%
       padding-top: 15px
+
 img
   width: 30px
   height: 30px
   border-radius: 50%
 
-input
-  width: 70%
-.wrap
-  display: flex
-  justify-content: space-around
-  height: 36px
-  overflow-x: hidden
-  width: 71%
+
+
+

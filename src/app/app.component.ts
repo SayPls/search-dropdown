@@ -18,6 +18,7 @@ export const fadeAnimation = trigger('fadeAnimation', [
 export class AppComponent implements OnInit{
   width!: number;
   search: boolean = false;
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.width = event.target.innerWidth;
